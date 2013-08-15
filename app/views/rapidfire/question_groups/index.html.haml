@@ -1,0 +1,13 @@
+%h2
+  Sondages
+  - if can_administer?
+    .pull-right
+      = link_to "Créer un sondage", new_question_group_path, class: "btn btn-large"
+%hr
+
+%table.table.table-striped
+  %colgroup
+    %col
+    %col{ width: "40%" }
+  %tbody
+    = render partial: "question_group", collection: @question_groups

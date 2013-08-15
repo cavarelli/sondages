@@ -1,0 +1,29 @@
+%h3 Question
+
+= simple_form_for [@question_group, question] do |f|
+  .row-fluid
+    .span5
+      = f.input :type, collection: Rapidfire::QuestionProxy::QUESTION_TYPES,
+        include_blank: false, input_html: { class: "input-xlarge" }
+      = f.input :question_text, input_html: { class: "input-xlarge" }
+      = f.input :answer_options, as: :text, input_html: { rows: 4, class: "input-xlarge" }
+
+    .span6
+      %h4
+        %strong Autres options
+      %hr
+
+      = f.input :answer_presence, as: :boolean
+      .row-fluid
+        .span6
+          = f.input :answer_minimum_length
+        .span6
+          = f.input :answer_maximum_length
+      .row-fluid
+        .span6
+          = f.input :answer_greater_than_or_equal_to
+        .span6
+          = f.input :answer_less_than_or_equal_to
+
+  %hr
+  = f.submit "Valider", class: "btn btn-primary btn-large"

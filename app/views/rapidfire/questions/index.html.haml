@@ -1,0 +1,17 @@
+%h2
+  Questions
+  .pull-right
+    = link_to "Créer une question", new_question_group_question_path(@question_group),
+      class: "btn btn-large"
+%hr
+
+%table.table.table-striped
+  %colgroup
+    %col
+    %col{ width: "40%" }
+  %thead
+    %tr
+      %th Question
+      %th
+  %tbody
+    = render partial: "question", collection: @questions
